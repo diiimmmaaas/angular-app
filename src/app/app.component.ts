@@ -10,9 +10,9 @@ import {Observable, tap} from "rxjs";
 })
 export class AppComponent implements OnInit{
   title = 'angular-app';
-  // products: Product[] = []
   loading = false
   products$: Observable<Product[]>
+  term: ''
 
   constructor(private productsService: ProductService) {
   }
@@ -22,9 +22,5 @@ export class AppComponent implements OnInit{
     this.products$ = this.productsService.getAll().pipe(
       tap( () => this.loading = false)
     )
-    // this.productsService.getAll().subscribe( (products) => {
-    //   this.products = products
-    //   this.loading = false
-    // } )
   }
 }

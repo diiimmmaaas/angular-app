@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpErrorResponse, HttpParams} from "@angular/common/http";
-import {catchError, Observable, retry, throwError} from "rxjs";
+import {catchError, delay, Observable, retry, throwError} from "rxjs";
 import {Product} from "src/app/models/products";
 import {ErrorService} from "src/app/services/error.service";
 
