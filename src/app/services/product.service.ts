@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpErrorResponse, HttpParams} from "@angular/common/http";
-import {catchError, delay, Observable, retry, tap, throwError} from "rxjs";
+import {catchError, Observable, tap, throwError} from "rxjs";
 import {Product} from "src/app/models/products";
 import {ErrorService} from "src/app/services/error.service";
 
@@ -22,7 +22,6 @@ export class ProductService {
         fromObject: {limit: 5}
       })
     }).pipe(
-      retry(2),
       tap(products => this.products = products),
       catchError(this.errorHandler.bind(this))
     )
